@@ -17,4 +17,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::group(['middleware' => ['auth']], function () {
+
+    Route::get('/home', 'HomeController@index');
+
+    Route::resource('sessions', 'SessionsController');
+    Route::resource('classes', 'ClassesController');
+    Route::resource('dashboards', 'DashboardsController');
+    Route::resource('dashboard-posts', 'DashboardPostsController');
+
+
+});
