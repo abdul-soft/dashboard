@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\AcademicClass;
+use App\AcademicSession;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -30,7 +32,11 @@ class DashboardsController extends Controller
      */
     public function create()
     {
-        return view('dashboards.create');
+        $sessions = AcademicSession::pluck('title','id');
+
+        $classes = AcademicClass::pluck('name','id');
+
+        return view('dashboards.create', compact('classes', 'sessions'));
     }
 
     /**
@@ -77,7 +83,12 @@ class DashboardsController extends Controller
     {
         $dashboard = Dashboard::findOrFail($id);
 
-        return view('dashboards.edit', compact('dashboard'));
+        $sessions = AcademicSession::pluck('title','id');
+
+        $classes = AcademicClass::pluck('name','id');
+
+
+        return view('dashboards.edit', compact('dashboard','classes','sessions'));
     }
 
     /**

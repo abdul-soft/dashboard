@@ -43,10 +43,12 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
+                        @role(('teacher'))
                          <li><a href="{{ url('/sessions') }}">Sessions</a></li>
                          <li><a href="{{ url('/classes') }}">Classes</a></li>
                          <li><a href="{{ url('/dashboards') }}">Dashboards</a></li>
-
+                         <li><a href="{{ url('/dashboard-posts') }}">Dashboard Posts</a></li>
+                        @endrole
                     </ul>
 
                     <!-- Right Side Of Navbar -->

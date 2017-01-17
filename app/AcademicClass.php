@@ -27,5 +27,9 @@ class AcademicClass extends Model
      */
     protected $fillable = ['name', 'session_id'];
 
+    public function sessions()
+    {
+        return $this->belongsTo(AcademicSession::class, 'session_id');
+    }
     
 }

@@ -30,7 +30,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $class->id }}</td>
                                     </tr>
-                                    <tr><th> Name </th><td> {{ $class->name }} </td></tr><tr><th> Session Id </th><td> {{ $class->session_id }} </td></tr>
+                                    <tr><th> Name </th><td> {{ $class->name }} </td></tr><tr><th> Session </th><td> {{ $class->sessions->title }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

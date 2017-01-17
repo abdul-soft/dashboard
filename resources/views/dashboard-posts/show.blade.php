@@ -30,7 +30,11 @@
                                     <tr>
                                         <th>ID</th><td>{{ $dashboardpost->id }}</td>
                                     </tr>
-                                    <tr><th> Dashboard Id </th><td> {{ $dashboardpost->dashboard_id }} </td></tr><tr><th> User Id </th><td> {{ $dashboardpost->user_id }} </td></tr><tr><th> Title </th><td> {{ $dashboardpost->title }} </td></tr>
+                                    <tr><th> Dashboard Id </th><td> {{ $dashboardpost->dashboard_id }} </td></tr>
+                                    <tr><th> User </th><td> {{ $dashboardpost->user->name }} </td></tr>
+                                    <tr><th> Title </th><td> {{ $dashboardpost->title }} </td></tr>
+                                    <tr><th> Description </th><td> {{ $dashboardpost->description }} </td></tr>
+                                    <tr><th> File </th><td> <a href="{{ $dashboardpost->file_url }}">{{ $dashboardpost->file_url }}</a> </td></tr>
                                 </tbody>
                             </table>
                         </div>

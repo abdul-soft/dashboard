@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Dashboard;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\DashboardPost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Session;
 
 class DashboardPostsController extends Controller
@@ -42,9 +44,13 @@ class DashboardPostsController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $file = $request->file('file_url');
+        $file->move('uploads',$file->getClientOriginalName());
+
+        $request->merge(['user_id' => Auth::user()->id]);
         $requestData = $request->all();
-        
+        $requestData['file_url'] = 'uploads/'.$file->getClientOriginalName();
+
         DashboardPost::create($requestData);
 
         Session::flash('flash_message', 'DashboardPost added!');
@@ -90,7 +96,8 @@ class DashboardPostsController extends Controller
      */
     public function update($id, Request $request)
     {
-        
+        $request->merge(['user_id' => Auth::user()->id]);
+
         $requestData = $request->all();
         
         $dashboardpost = DashboardPost::findOrFail($id);

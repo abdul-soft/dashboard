@@ -15,14 +15,14 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th> Name </th><th> Session Id </th><th>Actions</th>
+                                        <th>ID</th><th> Name </th><th> Session </th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($classes as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->name }}</td><td>{{ $item->session_id }}</td>
+                                        <td>{{ $item->name }}</td><td>{{ $item->sessions->title }}</td>
                                         <td>
                                             <a href="{{ url('/classes/' . $item->id) }}" class="btn btn-success btn-xs" title="View Class"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"/></a>
                                             <a href="{{ url('/classes/' . $item->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit Class"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/></a>

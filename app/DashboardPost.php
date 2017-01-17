@@ -27,5 +27,13 @@ class DashboardPost extends Model
      */
     protected $fillable = ['dashboard_id', 'user_id', 'title', 'description', 'file_url'];
 
-    
+    public function dashboard()
+    {
+        return $this->belongsTo(Dashboard::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

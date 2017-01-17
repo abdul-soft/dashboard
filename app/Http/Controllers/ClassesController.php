@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\AcademicClass;
+use App\AcademicSession;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -31,7 +32,9 @@ class ClassesController extends Controller
      */
     public function create()
     {
-        return view('classes.create');
+        $sessions = AcademicSession::pluck('title','id');
+
+        return view('classes.create', compact('sessions'));
     }
 
     /**
@@ -76,9 +79,11 @@ class ClassesController extends Controller
      */
     public function edit($id)
     {
+        $sessions = AcademicSession::pluck('title','id');
+
         $class = AcademicClass::findOrFail($id);
 
-        return view('classes.edit', compact('class'));
+        return view('classes.edit', compact('class', 'sessions'));
     }
 
     /**

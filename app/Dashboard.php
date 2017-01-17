@@ -31,5 +31,15 @@ class Dashboard extends Model
 	{
 		return $this->hasMany('App\DashboardPost');
 	}
-	
+
+	public function classes()
+    {
+        return $this->belongsTo(AcademicClass::class, 'class_id');
+    }
+
+	public function sessions()
+    {
+        return $this->belongsTo(AcademicSession::class, 'session_id');
+    }
+
 }

@@ -15,14 +15,14 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th> Class Id </th><th> Session Id </th><th>Actions</th>
+                                        <th>ID</th><th> Class </th><th> Session </th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($dashboards as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->class_id }}</td><td>{{ $item->session_id }}</td>
+                                        <td>{{ $item->classes->name }}</td><td>{{ $item->sessions->title }}</td>
                                         <td>
                                             <a href="{{ url('/dashboards/' . $item->id) }}" class="btn btn-success btn-xs" title="View Dashboard"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"/></a>
                                             <a href="{{ url('/dashboards/' . $item->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit Dashboard"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/></a>

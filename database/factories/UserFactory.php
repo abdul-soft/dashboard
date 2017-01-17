@@ -11,14 +11,14 @@
 |
 */
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\User::class, function (Faker\Generator $faker) {
-    static $password;
-
     return [
         'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => str_random(10),
+        'email' => $faker->safeEmail,
+        'password' => bcrypt('123456'),
+        'gender'    =>  'male',
+        'age'   =>  $faker->numberBetween(10,30),
+        'date_of_birth'=>   $faker->dateTime,
+        'address'   =>  $faker->address
     ];
 });

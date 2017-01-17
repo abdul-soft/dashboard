@@ -11,16 +11,9 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-        $role = new \App\Models\Role();
-        $role->name         = 'admin';
-        $role->display_name = 'Admin';
-        $role->description  = 'IT Tracker project Admin';
-        $role->save();
 
-        $role = new \App\Models\Role();
-        $role->name         = 'employee';
-        $role->display_name = 'Employee';
-        $role->description  = 'IT Tracker Employee';
-        $role->save();
+        \App\Role::create(['name'=> 'teacher', 'display_name'=> 'teacher', 'description'=>'Teacher']);
+        \App\Role::create(['name'=> 'student', 'display_name'=> 'student', 'description'=>'Student']);
+
     }
 }
